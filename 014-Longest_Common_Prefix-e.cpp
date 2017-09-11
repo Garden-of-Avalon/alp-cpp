@@ -10,15 +10,11 @@ class Solution {
         sort(strs.begin(), strs.end(),
              [](string &a, string &b) { return a.size() < b.size(); });
         size_t shortest_length = strs[0].size();
-        string temp;
-        for (auto i = 0; i < shortest_length; ++i) {
-            for (auto str : strs) {
+        for (size_t i = 0; i < shortest_length; ++i)
+            for (auto &str : strs)
                 if (str[i] != strs[0][i])
-                    return temp;
-            }
-            temp += strs[0][i];
-        }
-        return temp; // cover the case of shortest_length == 0
+                    return strs[0].substr(0, i);
+        return strs[0]; // the shortest string is empty string
     }
 };
 
