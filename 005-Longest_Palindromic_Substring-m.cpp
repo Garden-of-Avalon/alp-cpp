@@ -10,12 +10,9 @@
 
 class Solution {
     bool checkPalindrome(const string &s, int start, int end) {
-        while (start < end) {
-            if (s[start] != s[end])
+        while (start < end)
+            if (s[start++] != s[end--])
                 return false;
-            ++start;
-            --end;
-        }
         return true;
     }
 
@@ -24,11 +21,9 @@ class Solution {
         int len = s.size(), i;
         if (len == 0)
             return "";
-        for (int substrlen = len; substrlen > 0; --substrlen) {
-            for (i = 0; i < len - substrlen + 1; ++i) {
+        for (int substrlen = len; substrlen > 0; --substrlen)
+            for (i = 0; i < len - substrlen + 1; ++i)
                 if (checkPalindrome(s, i, i + substrlen - 1))
                     return s.substr(i, substrlen);
-            }
-        }
     }
 };
