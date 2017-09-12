@@ -9,8 +9,8 @@ class Solution {
             return "";
         sort(strs.begin(), strs.end(),
              [](string &a, string &b) { return a.size() < b.size(); });
-        size_t shortest_length = strs[0].size();
-        for (size_t i = 0; i < shortest_length; ++i)
+        int shortest_length = strs[0].size();
+        for (int i = 0; i < shortest_length; ++i)
             for (auto &str : strs)
                 if (str[i] != strs[0][i])
                     return strs[0].substr(0, i);
@@ -24,7 +24,7 @@ class Solution {
 //     string longestCommonPrefix(vector<string> &strs) {
 //         if (strs.empty())
 //             return "";
-//         size_t shortest_length = strs[0].size();
+//         int shortest_length = strs[0].size();
 //         for (auto str : strs) {
 //             if (str.size() < shortest_length)
 //                 shortest_length = str.size();
