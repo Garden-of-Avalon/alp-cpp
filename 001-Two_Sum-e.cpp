@@ -7,6 +7,8 @@
 // Because nums[0] + nums[1] = 2 + 7 = 9,
 // return [0, 1].
 
+// bad version
+// time complexity should be O(n)
 class Solution {
   public:
     vector<int> twoSum(vector<int> &nums, int target) {
