@@ -11,13 +11,31 @@
 class Solution {
   public:
     vector<vector<int>> threeSum(vector<int> &nums) {
-        sort(nums.begin(), nums.end());
-        if (*num.begin() > 0 || *(nums.end() - 1) < 0)
-            return vector<vector<int>>();
-
-        set<vector<int>> result;
-        if (nums[i] + nums[j] > 0)
-
-            return vector<vector<int>>(result.begin(), result.end());
+        sort(nums.begin(), nums.end()); // nlog(n)
+        vector<vector<int>> result;
+        int sz = nums.size();
+        // O(n^2)
+        for (int i = 0; i < sz - 2; ++i) {
+            int j = i + 1, k = sz - 1;
+            while (j < k) {
+                if (nums[j] + nums[k] < -nums[i])
+                    ++j;
+                else if (nums[j] + nums[k] > -nums[i])
+                    --k;
+                else {
+                    // acutally i, j, k; just combine j++ and k-- here.
+                    result.push_back({nums[i], nums[j++], nums[k--]});
+                    // bypassing same elements (j, k)
+                    while (j < k && nums[j] == nums[j - 1])
+                        ++j;
+                    while (j < k && nums[k] == nums[k + 1])
+                        --k;
+                }
+            }
+            // bypassing same elements (i)
+            while (i < sz - 1 && nums[i + 1] == nums[i])
+                ++i;
+        }
+        return result;
     }
 };
