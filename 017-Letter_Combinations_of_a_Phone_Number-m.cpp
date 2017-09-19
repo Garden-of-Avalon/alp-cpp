@@ -16,27 +16,25 @@ class Solution {
                                       {'g', 'h', 'i'}, {'j', 'k', 'l'},
                                       {'m', 'n', 'o'}, {'p', 'q', 'r', 's'},
                                       {'t', 'u', 'v'}, {'w', 'x', 'y', 'z'}};
-        vector<string> result;
+        vector<string> result(1); // initialize with 1 empty string
         for (auto &digit : digits) {
-            // notice it is char compare here
+            // note: char compare here
             if (digit < '2' || digit > '9')
-                return {};
+                return vector<string>();
+            // number of chars of current digit
             int numChars = table[digit - '2'].size();
             int resSize = result.size();
-            if (resSize)
-                result.reserve(numChars * resSize);
-            else {
-                result.resize(1);
-                resSize = 1;
-            }
-            // concatenate itself to its end several times
+            result.reserve(numChars * resSize);
+            // concatenate result itself to its end several times
+            // eg: {a, b} becomes {a, b, a, b}
             for (int i = 0; i < numChars - 1; ++i)
                 copy_n(result.begin(), resSize, back_inserter(result));
             // add new chars in each string's end
+            // eg: {a, b} becomes {ac, bc, ad, bd}
             for (int i = 0; i < numChars; ++i)
                 for (int j = 0; j < resSize; ++j)
                     result[j + i * resSize] += table[digit - '2'][i];
         }
-        return result;
+        return result.size() > 2 ? result : vector<string>();
     }
 };
