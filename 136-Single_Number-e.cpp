@@ -8,6 +8,7 @@ class Solution {
   public:
     int singleNumber(vector<int> &nums) {
         int result = 0;
+        // if this is not allowed, just use nums[0]
         for (auto &n : nums)
             result ^= n;
         return result;
