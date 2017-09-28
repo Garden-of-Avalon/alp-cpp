@@ -25,3 +25,21 @@ class Solution {
         return temp;
     }
 };
+
+// recursive version
+class Solution {
+    ListNode *reversehelper(ListNode *head, ListNode *end) {
+        ListNode *temp = head->next;
+        head->next = end;
+        if (!temp)
+            return head;
+        return reversehelper(temp, head);
+    }
+
+  public:
+    ListNode *reverseList(ListNode *head) {
+        if (!head)
+            return head;
+        return reversehelper(head, NULL);
+    }
+};
