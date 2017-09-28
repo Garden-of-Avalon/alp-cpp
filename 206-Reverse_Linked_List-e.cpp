@@ -29,11 +29,10 @@ class Solution {
 // recursive version
 class Solution {
     ListNode *reversehelper(ListNode *head, ListNode *end) {
-        ListNode *temp = head->next;
-        head->next = end;
-        if (!temp)
+        swap(head->next, end);
+        if (!end)
             return head;
-        return reversehelper(temp, head);
+        return reversehelper(end, head);
     }
 
   public:
