@@ -18,11 +18,10 @@ class Solution {
         if (!head)
             return head;
         ListNode *temp = NULL;
-        while (head->next) {
+        while (head) {
             swap(temp, head->next);
             swap(head, temp);
         }
-        head->next = temp;
-        return head;
+        return temp;
     }
 };
