@@ -41,11 +41,11 @@ class Solution {
             for (j = i; j < n - 1 - i; ++j) {
                 // eg. n == 4
                 // (0, 0) <-> (0, 3), or (0, 1) <-> (1, 3), or (1, 1) <-> (1, 2)
-                swap(matrix[i][j], matrix[j][n - 1 - i]);
+                std::swap(matrix[i][j], matrix[j][n - 1 - i]);
                 // (0, 0) <-> (3, 3), or (0, 1) <-> (3, 2), or (1, 1) <-> (2, 2)
-                swap(matrix[i][j], matrix[n - 1 - i][n - 1 - j]);
+                std::swap(matrix[i][j], matrix[n - 1 - i][n - 1 - j]);
                 // (0, 0) <-> (3, 0), or (0, 1) <-> (2, 0), or (1, 1) <-> (2, 1)
-                swap(matrix[i][j], matrix[n - 1 - j][i]);
+                std::swap(matrix[i][j], matrix[n - 1 - j][i]);
             }
     }
 };

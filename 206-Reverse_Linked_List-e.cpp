@@ -19,8 +19,8 @@ class Solution {
             return head;
         ListNode *temp = NULL;
         while (head) {
-            swap(temp, head->next);
-            swap(head, temp);
+            std::swap(temp, head->next);
+            std::swap(head, temp);
         }
         return temp;
     }
@@ -29,7 +29,7 @@ class Solution {
 // recursive version
 // class Solution {
 //     ListNode *reversehelper(ListNode *head, ListNode *end) {
-//         swap(head->next, end);
+//         std::swap(head->next, end);
 //         if (!end)
 //             return head;
 //         return reversehelper(end, head);

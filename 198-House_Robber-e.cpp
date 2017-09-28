@@ -15,7 +15,7 @@ class Solution {
     int rob(vector<int> &nums) {
         int result = 0, resultprev = 0;
         for (auto &n : nums) {
-            swap(result, resultprev);
+            std::swap(result, resultprev);
             // actually max(n + resultprev, result)
             result = max(n + result, resultprev);
         }

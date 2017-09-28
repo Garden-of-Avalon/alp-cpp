@@ -15,7 +15,7 @@ class Solution {
         for (int i = 2; i < n; ++i) {
             result = endOne * 2 + endTwo;
             // if we use endTwo = endOne, information of endTwo will lose
-            swap(endOne, endTwo);
+            std::swap(endOne, endTwo);
             endOne = endOne + endTwo;
         }
         return result;
