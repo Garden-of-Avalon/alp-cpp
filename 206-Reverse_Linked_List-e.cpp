@@ -15,8 +15,6 @@
 class Solution {
   public:
     ListNode *reverseList(ListNode *head) {
-        if (!head)
-            return head;
         ListNode *temp = NULL;
         while (head) {
             std::swap(temp, head->next);
