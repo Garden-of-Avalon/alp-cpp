@@ -27,18 +27,18 @@ class Solution {
 };
 
 // recursive version
-class Solution {
-    ListNode *reversehelper(ListNode *head, ListNode *end) {
-        swap(head->next, end);
-        if (!end)
-            return head;
-        return reversehelper(end, head);
-    }
+// class Solution {
+//     ListNode *reversehelper(ListNode *head, ListNode *end) {
+//         swap(head->next, end);
+//         if (!end)
+//             return head;
+//         return reversehelper(end, head);
+//     }
 
-  public:
-    ListNode *reverseList(ListNode *head) {
-        if (!head)
-            return head;
-        return reversehelper(head, NULL);
-    }
-};
+//   public:
+//     ListNode *reverseList(ListNode *head) {
+//         if (!head)
+//             return head;
+//         return reversehelper(head, NULL);
+//     }
+// };
