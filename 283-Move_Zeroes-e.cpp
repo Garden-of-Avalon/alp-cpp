@@ -11,6 +11,7 @@
 
 // similar to std remove
 // http://www.cplusplus.com/reference/algorithm/remove/
+// ref 027
 // use iterator
 class Solution {
   public:
