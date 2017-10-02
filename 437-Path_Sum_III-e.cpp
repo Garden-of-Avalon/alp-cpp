@@ -28,6 +28,7 @@
  * };
  */
 // NEED MORE OPTIMIZATIONS
+// DFS
 class Solution {
   public:
     int pathSum(TreeNode *root, int sum) {
