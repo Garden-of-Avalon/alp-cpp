@@ -33,6 +33,7 @@
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
+// iterative DFS
 class Solution {
   public:
     int rob(TreeNode *root) {
@@ -54,26 +55,30 @@ class Solution {
                            !parents.top()->right) {
                         temp = parents.top();
                         parents.pop();
-                        // update value
-                        temp->val =
-                            std::max(temp->val + (temp->left && temp->left->left
-                                                      ? root->left->left->val
-                                                      : 0) +
-                                         (temp->left && temp->left->right
-                                              ? root->left->right->val
-                                              : 0) +
-                                         (temp->right && temp->right->left
-                                              ? root->right->left->val
-                                              : 0) +
-                                         (temp->right && temp->right->right
-                                              ? root->right->right->val
-                                              : 0),
-                                     (temp->left ? temp->left->val : 0) +
-                                         (temp->right ? temp->right->val : 0));
+                        // update node value
+                        temp->val = std::max(
+                            temp->val +
+                                (temp->left
+                                     ? (temp->left->left ? temp->left->left->val
+                                                         : 0) +
+                                           (temp->left->right
+                                                ? temp->left->right->val
+                                                : 0)
+                                     : 0) +
+                                (temp->right
+                                     ? (temp->right->left
+                                            ? temp->right->left->val
+                                            : 0) +
+                                           (temp->right->right
+                                                ? temp->right->right->val
+                                                : 0)
+                                     : 0),
+                            (temp->left ? temp->left->val : 0) +
+                                (temp->right ? temp->right->val : 0));
                         if (parents.empty())
-                            break;
+                            return root->val;
                     }
-                    parents.push(temp = temp->right);
+                    parents.push(temp = parents.top()->right);
                 }
             }
         }
