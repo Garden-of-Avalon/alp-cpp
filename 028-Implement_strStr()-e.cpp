@@ -21,7 +21,7 @@ class Solution {
                 return i;
         // or implement in C style and use reference to avoid copy
 
-        // KMP algorithm can be used hear
+        // KMP algorithm can be used here
 
         return -1;
     }
