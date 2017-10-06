@@ -7,7 +7,7 @@
 // Because nums[0] + nums[1] = 2 + 7 = 9,
 // return [0, 1].
 
-// bad version
+// NEED OPTIMIZATION
 // time complexity should be O(n)
 class Solution {
   public:
