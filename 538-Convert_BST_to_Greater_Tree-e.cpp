@@ -23,27 +23,24 @@
 class Solution {
   public:
     TreeNode *convertBST(TreeNode *root) {
-        if (!root)
-            return root;
-
-        TreeNode *temp = NULL;
-        if (root->right) {
-            convertBST(root->right);
-            temp = root->right;
-            // Go to left most and update root val
-            while (temp->left)
-                temp = temp->left;
-            root->val += temp->val;
+        if (root) {
+            if (root->right) {
+                convertBST(root->right);
+                TreeNode *temp = root->right;
+                // Go to left most and update root val
+                while (temp->left)
+                    temp = temp->left;
+                root->val += temp->val;
+            }
+            if (root->left) {
+                TreeNode *temp = root->left;
+                // Go to right most and add root val
+                while (temp->right)
+                    temp = temp->right;
+                temp->val += root->val;
+                convertBST(root->left);
+            }
         }
-        if (root->left) {
-            temp = root->left;
-            // Go to right most and add root val
-            while (temp->right)
-                temp = temp->right;
-            temp->val += root->val;
-            convertBST(root->left);
-        }
-
         return root;
     }
 };
