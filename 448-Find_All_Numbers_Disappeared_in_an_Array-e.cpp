@@ -16,13 +16,14 @@ class Solution {
         vector<int> result;
 
         int i, temp;
-        for (int i = 0; i < nums.size(); ++i)  {
+        for (i = 0; i < nums.size(); ++i) {
             temp = abs(nums[i]) - 1;
-            if(nums[temp])
+            if (nums[temp])
                 nums[temp] = -nums[temp];
         }
-        for (int i = 0; i < nums.size(); ++i)
-            if(nums[i])
+
+        for (i = 0; i < nums.size(); ++i)
+            if (nums[i])
                 result.push_back(i + 1);
 
         return result;
