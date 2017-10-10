@@ -14,7 +14,7 @@
 // ]
 
 // O(2^n), better
-// Recursive Backtrace
+// Recursive Backtracking
 class Solution {
     void genSubsets(vector<int> &nums, int start, vector<int> &currIn,
                     vector<vector<int>> &result) {
