@@ -13,7 +13,7 @@
 //   []
 // ]
 
-// O(n^2), better
+// O(2^n), better
 // Recursive Backtrace
 class Solution {
     void genSubsets(vector<int> &nums, int start, vector<int> &currIn,
@@ -55,7 +55,7 @@ class Solution {
     }
 };
 
-// O(n^2), not good
+// O(2^n), not good
 // Exactly equivalent to Bit Manipulation
 // class Solution {
 //   public:
