@@ -13,7 +13,8 @@
 //   []
 // ]
 
-// O(2^n), better
+// O(2^n), better practice
+// But actually still same, push_back a vector<int> in result needs O(n) time
 // Recursive Backtracking
 class Solution {
     void genSubsets(vector<int> &nums, int start, vector<int> &currIn,
@@ -55,8 +56,8 @@ class Solution {
     }
 };
 
-// O(2^n), not good
-// Exactly equivalent to Bit Manipulation
+// O(2^n)
+// Equivalent to Bit Manipulation
 // class Solution {
 //   public:
 //     vector<vector<int>> subsets(vector<int> &nums) {
