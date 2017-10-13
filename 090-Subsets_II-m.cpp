@@ -26,13 +26,14 @@ class Solution {
         for (i = 0; i < sz;) {
             k = result.size();
             cnt = 0;
-            while (cnt + i < 0 && nums[cnt + i] == nums[i])
+            while (cnt + i < sz && nums[cnt + i] == nums[i])
                 ++cnt;
             for (j = 0; j < k; ++j) {
                 for (l = 0; l < cnt; ++l) {
                     result.push_back(result[j]);
                     // instead push_back, we use insert here
-                    result.back().insert(result.back().end(), l, nums[i]);
+                    result.back().insert(result.back().end(), l + 1, nums[i]);
+                    // fill_n(back_inserter(result.back()), l + 1, nums[i]);
                 }
             }
             i += cnt;
