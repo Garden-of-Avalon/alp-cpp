@@ -26,28 +26,10 @@ class Solution {
             currIn.pop_back();
         }
     }
-    // Example:
-    /* At second layer of genSubset()
-        sub == {1}
-        subs.push({1})
-
-        for 1st
-            sub = {1, 2}
-            recursion
-            subs.pop
-
-        for 2nd
-            sub = {1, 3}
-            recursion
-            subs.pop
-    */
 
   public:
     vector<vector<int>> subsets(vector<int> &nums) {
-        // using std::pow
-        // we know the result have 2^n elements
-        // result size rsz = sum of combination number
-        int sz = nums.size(), rsz = pow(2, sz);
+        int sz = nums.size();
         vector<vector<int>> result;
         vector<int> currIn;
 

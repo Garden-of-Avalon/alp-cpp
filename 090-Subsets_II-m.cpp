@@ -18,18 +18,46 @@
 class Solution {
   public:
     vector<vector<int>> subsetsWithDup(vector<int> &nums) {
-        int sz = nums.size(), rsz = pow(2, sz);
+        int sz = nums.size();
         vector<vector<int>> result(1, vector<int>());
+        sort(nums.begin(), nums.end());
 
-        int i, j, k;
-        for (int i = 0; i < sz; ++i) {
+        int i, j, k, l, cnt;
+        for (i = 0; i < sz;) {
             k = result.size();
-            for (int j = 0; j < k; ++j) {
-                result.push_back(result[j]);
-                result.back().push_back(nums[i]);
+            cnt = 0;
+            while (cnt + i < 0 && nums[cnt + i] == nums[i])
+                ++cnt;
+            for (j = 0; j < k; ++j) {
+                for (l = 0; l < cnt; ++l) {
+                    result.push_back(result[j]);
+                    // instead push_back, we use insert here
+                    result.back().insert(result.back().end(), l, nums[i]);
+                }
             }
+            i += cnt;
         }
 
         return result;
     }
 };
+
+// working for nums without duplicate
+// class Solution {
+//   public:
+//     vector<vector<int>> subsetsWithDup(vector<int> &nums) {
+//         int sz = nums.size();
+//         vector<vector<int>> result(1, vector<int>());
+
+//         int i, j, k;
+//         for (int i = 0; i < sz; ++i) {
+//             k = result.size();
+//             for (int j = 0; j < k; ++j) {
+//                 result.push_back(result[j]);
+//                 result.back().push_back(nums[i]);
+//             }
+//         }
+
+//         return result;
+//     }
+// };
