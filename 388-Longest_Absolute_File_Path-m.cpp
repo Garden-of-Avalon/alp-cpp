@@ -38,7 +38,7 @@
 class Solution {
   public:
     int lengthLongestPath(string input) {
-        size_t sz = input.size(), i = 0;
+        size_t sz = input.size();
         size_t currline = 0, nextline, lasttab;
         int currlen = 0, maxlen = 0, level = 0;
         vector<int> levellens = {0};
