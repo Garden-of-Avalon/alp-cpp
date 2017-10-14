@@ -27,7 +27,7 @@
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
-// NEED MORE OPTIMIZATIONS
+// NEED OPTIMIZATIONS
 // DFS
 class Solution {
   public:
