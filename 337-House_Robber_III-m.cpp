@@ -33,7 +33,8 @@
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
-// iterative DFS
+// NEED O
+// iterative preorder traverse
 class Solution {
   public:
     int rob(TreeNode *root) {

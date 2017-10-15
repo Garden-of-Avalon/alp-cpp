@@ -28,7 +28,7 @@
  * };
  */
 // NEED OPTIMIZATIONS
-// DFS
+// preorder traverse
 class Solution {
   public:
     int pathSum(TreeNode *root, int sum) {
