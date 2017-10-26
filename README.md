@@ -5,4 +5,4 @@ naming rules:
 
 number-title-difficulty (e-easy, m-medium, h-hard)
 
-"NEED O" means "need further work/optimization".
+"NEED O" and "TODO" mean that "need further work/optimization".
