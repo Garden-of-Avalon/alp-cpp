@@ -6,6 +6,8 @@ class Solution {
         if (!n)
             return 1;
         if (n < 0) {
+            if (n == INT_MIN)
+                n += 2;
             n = -n;
             x = 1 / x;
         }
