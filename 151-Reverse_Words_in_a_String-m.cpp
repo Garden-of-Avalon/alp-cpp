@@ -19,28 +19,20 @@ class Solution {
     void reverseWords(string &s) {
         int i, j;
 
-        // remove spaces at head and tail
-        i = 0;
-        j = s.size() - 1;
-        while (i < s.size() && s[i] == ' ')
-            ++i;
-        while (j >= 0 && s[j] == ' ')
-            --j;
-        s = j >= i ? s.substr(i, j - i + 1) : "";
-
         // remove continuous spaces
-        i = 0;
-        while (i < s.size() && s[i] != ' ')
-            ++i;
+        // AND remove spaces at head and tail
+        i = -1;
         do {
-            j = ++i; // second space
+            j = i + 1; // second space
             while (j < s.size() && s[j] == ' ')
                 ++j;
+            if (j != s.size())
+                ++i;
             while (j < s.size() && s[j] != ' ')
                 swap(s[i++], s[j++]);
             // now s[i] == ' ' or i == s.size()
         } while (j < s.size());
-        s = s.substr(0, i);
+        s = i > 0 ? s.substr(0, i) : "";
 
         // reverse sentence
         i = 0;
