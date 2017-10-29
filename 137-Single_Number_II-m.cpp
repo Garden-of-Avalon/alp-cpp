@@ -23,7 +23,7 @@
 class Solution {
   public:
     int singleNumber(vector<int> &nums) {
-        int a = 0, tempa;
+        int a = 0;
         int b = 0;
         for (int &c : nums) {
             b = ~a & (b ^ c);
