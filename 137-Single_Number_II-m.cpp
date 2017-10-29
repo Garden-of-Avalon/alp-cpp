@@ -4,7 +4,7 @@
 // Your algorithm should have a linear runtime complexity. Could you implement
 // it without using extra memory?
 
-// TODO digital design, simplify truth table
+// digital design, simplify truth table
 // Use a and b to represent 3 states
 // ab has 3 value, 00, 01, 10
 // ab      c       ab
@@ -14,18 +14,23 @@
 // 00      1       01
 // 01      1       10
 // 10      1       00
-// a = ~abc + a ~b ~c;
-// b = ~a ~bc + ~ab ~c;
+// 1st solution
+// a = ~abc + a~b~c;
+// b = ~a~bc + ~ab~c;
+// 2nd way
+// b = b~c~a + ~bc~a = (b xor c) ~a;
+// a = ~a~newbc + a~newb~c = (a xor c) ~newb;
 class Solution {
   public:
     int singleNumber(vector<int> &nums) {
         int a = 0, tempa;
         int b = 0;
         for (int &c : nums) {
-            tempa = (~a & b & c) | (a & ~b & ~c);
-            b = (~a & ~b & c) | (~a & b & ~c);
-            a = tempa;
+            b = ~a & (b ^ c);
+            a = ~b & (a ^ c);
         }
-        return a | b;
+        // a is the one appear twice
+        // b is the one appear exactly once
+        return b;
     }
 };
