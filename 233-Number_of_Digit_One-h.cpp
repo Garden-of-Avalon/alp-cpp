@@ -26,6 +26,7 @@ class Solution {
             else if (digit > 1)
                 cnt += i;
             cnt += i * (n / i / 10);
+            
             if (INT_MAX / i < 10)
                 break;
         }
