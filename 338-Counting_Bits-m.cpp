@@ -21,7 +21,7 @@ class Solution {
         vector<int> ret(num + 1, 0);
         for (int i = 1; i <= num; ++i) {
             // example
-            // 5, 6: 101 & 110 = 100, ret[5] = ret[4] + 1 = 2
+            // 5, 6: 101 & 110 = 100, ret[6] = ret[4] + 1 = 2
             // 6, 7: 110 & 111 = 110, ret[7] = ret[6] + 1 = 3
             // 7, 8: 111 & 1000 = 1000, ret[8] = ret[8] + 1 = 1
             ret[i] = ret[i & (i - 1)] + 1;
