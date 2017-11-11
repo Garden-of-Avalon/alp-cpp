@@ -21,3 +21,9 @@ class Solution {
         return n & 0x0000003F;
     }
 };
+
+// C++11 way
+class Solution {
+  public:
+    int hammingWeight(uint32_t n) { return bitset<32>(n).count(); }
+};
