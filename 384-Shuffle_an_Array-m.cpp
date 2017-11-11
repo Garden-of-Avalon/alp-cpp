@@ -10,25 +10,27 @@
 // // Returns the random shuffling of array [1,2,3].
 // solution.shuffle();
 
-
 class Solution {
-public:
+  public:
     Solution(vector<int> nums) : ns(nums) {
-        
+        u = uniform_int_distribution<unsigned>(0, nums.size() - 1);
     }
-    
+
     /** Resets the array to its original configuration and return it. */
-    vector<int> reset() {
-       return ns; 
-    }
-    
+    vector<int> reset() { return ns; }
+
     /** Returns a random shuffling of the array. */
     vector<int> shuffle() {
-        
+        vector<int> ret(ns);
+        for (int i = 0; i < ns.size(); ++i)
+            swap(ret[i], ret[u(e)]);
+        return ret;
     }
 
-private:
+  private:
     vector<int> ns;
+    default_random_engine e;
+    uniform_int_distribution<unsigned> u;
 };
 
 /**
