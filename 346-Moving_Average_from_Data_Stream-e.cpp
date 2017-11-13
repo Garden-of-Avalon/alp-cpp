@@ -13,21 +13,22 @@ class MovingAverage {
     MovingAverage(int size) : sz(size) {}
 
     double next(int val) {
-        if (cnt < sz)
-            ++cnt;
-        else {
-            sum -= vals.front();
-            vals.pop_front();
-        }
         sum += val;
-        vals.push_back(val);
+        vals.push(val);
+
+        if (vals.size() > sz) {
+            sum -= vals.front();
+            vals.pop();
+        }
+
         // return cnt ? static_cast<double>(sum) / cnt : DBL_MAX;
-        return static_cast<double>(sum) / cnt;
+        return sum / vals.size();
     }
 
   private:
-    int sz = 0, cnt = 0, sum = 0;
-    deque<int> vals;
+    int sz = 0;
+    double sum = 0;
+    queue<int> vals;
 };
 
 /**
