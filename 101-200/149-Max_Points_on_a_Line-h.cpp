@@ -27,11 +27,16 @@ class Solution {
 
         for (int i = 0; i < points.size(); ++i) {
             int sameCnt = 1;
+
             // double is not accurate enough for slope
             // unordered_map<double, int> slopeCnt;
-            // use pair <int, int> (cannot pass compilation) to store slope
-            // use string as key
+
+            // pair<int, int> key cannot compile; cannot handle negative sign.
+
+            // use string as key is OK.
+            // for negative sign, please refer end of this file
             unordered_map<string, int> slopeCnt;
+
             for (int j = i + 1; j < points.size(); ++j) {
                 if (points[i].x == points[j].x && points[i].y == points[j].y)
                     ++sameCnt;
@@ -55,3 +60,20 @@ class Solution {
         return ret;
     }
 };
+
+// example 1
+// gcd(8, -12) is -4
+// 8 / (-4) = -2, -12 / (-4) = 3
+// gcd(-8, 12) is 4
+// -8 / 4 = -2, 12 / 4 = 3
+// The string will be same
+
+// example 2
+// gcd(8, -24) is 8
+// 8 / 8 = 1, -24 / 8 = -3
+// gcd(-8, 24) is -8
+// -8 / (-8) = 1, 24 / (-8) = -3
+// The string will also be same
+
+// So the string as key of unordered_map is OK
+// and it will handle negative sign
