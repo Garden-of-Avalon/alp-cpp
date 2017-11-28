@@ -10,8 +10,8 @@ number-title-difficulty (e-easy, m-medium, h-hard)
 
 ## Statistics on 2017-11-27
 
-152 / 702
+153 / 702
 
 | total | easy | medium | hard | 
 |:-----:|:----:|:------:|:----:|
-|  152  |  89  |   50   |  14  |
+|  153  |  89  |   50   |  14  |
