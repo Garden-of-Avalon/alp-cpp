@@ -15,13 +15,12 @@ class Solution {
     void genPermu(vector<int> &nums, int start, vector<vector<int>> &result) {
         if (start == nums.size())
             result.push_back(nums);
-        else {
+        else
             for (int i = start; i < nums.size(); ++i) {
                 swap(nums[start], nums[i]);
                 genPermu(nums, start + 1, result);
                 swap(nums[start], nums[i]);
             }
-        }
     }
 
   public:

@@ -38,3 +38,28 @@ class Solution {
         return result;
     }
 };
+
+// closer to 046
+class Solution {
+    void genPermu(vector<int> &nums, int start, vector<vector<int>> &result) {
+        if (start == nums.size() - 1)
+            result.push_back(nums);
+        else {
+            unordered_set<int> temp;
+            // here set has better performance
+            for (int i = start; i < nums.size(); ++i)
+                if (temp.insert(nums[i]).second) {
+                    swap(nums[start], nums[i]);
+                    genPermu(nums, start + 1, result);
+                    swap(nums[start], nums[i]);
+                }
+        }
+    }
+
+  public:
+    vector<vector<int>> permuteUnique(vector<int> &nums) {
+        vector<vector<int>> result;
+        genPermu(nums, 0, result);
+        return result;
+    }
+};
