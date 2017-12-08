@@ -59,3 +59,47 @@ class Solution {
         return res;
     }
 };
+
+class Solution {
+  public:
+    vector<int> spiralOrder(vector<vector<int>> &matrix) {
+        vector<int> res;
+        if (matrix.empty())
+            return res;
+        int m = matrix.size(), n = matrix[0].size();
+        int i = 0, j = 0;
+        while (m > 0 && n > 0) {
+            // left to right
+            for (int i1 = 0; i1 < n; ++i1)
+                res.push_back(matrix[i][j++]);
+            ++i;
+            --j;
+            if (m > 1) {
+                // up to down
+                for (int i2 = 0; i2 < m - 1; ++i2)
+                    res.push_back(matrix[i++][j]);
+                --i;
+                --j;
+                if (n > 1) {
+                    // right to left
+                    for (int i3 = 0; i3 < n - 1; ++i3)
+                        res.push_back(matrix[i][j--]);
+                    --i;
+                    ++j;
+                    if (m > 2) {
+                        // down to up
+                        for (int i4 = 0; i4 < m - 2; ++i4)
+                            res.push_back(matrix[i--][j]);
+                        ++i;
+                        ++j;
+                    }
+                }
+            }
+
+            m -= 2;
+            n -= 2;
+        }
+
+        return res;
+    }
+};
