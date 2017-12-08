@@ -7,7 +7,6 @@
 // Because nums[0] + nums[1] = 2 + 7 = 9,
 // return [0, 1].
 
-// NEED OPTIMIZATION
 // time complexity should be O(n)
 class Solution {
   public:
@@ -24,5 +23,23 @@ class Solution {
             }
         }
         return {-1, -1}; // self defined error message
+    }
+};
+
+// O(n) version
+class Solution {
+  public:
+    vector<int> twoSum(vector<int> &nums, int target) {
+        unordered_map<int, int> temp; // value, index in nums
+
+        for (int i = 0; i < nums.size(); ++i) {
+            auto it = temp.find(target - nums[i]);
+            if (it != temp.end())
+                return {it->second, i};
+            temp[nums[i]] = i;
+        }
+
+        // throw std::runtime_error("not found");
+        return vector<int>();
     }
 };
