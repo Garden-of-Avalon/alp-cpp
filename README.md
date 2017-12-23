@@ -1,8 +1,12 @@
-# leetcode-cpp
+# LeetCode-cpp
 
-Personal leetcode C++ answer repository.
+Personal LeetCode C++ answer repository.
 
-naming rules:
+My LeetCode profile:
+
+https://leetcode.com/ysmiles/
+
+## naming rules:
 
 number-title-difficulty (e-easy, m-medium, h-hard)
 
