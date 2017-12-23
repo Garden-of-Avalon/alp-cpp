@@ -10,8 +10,14 @@ number-title-difficulty (e-easy, m-medium, h-hard)
 
 ## Statistics on 2017-11-27
 
-153 / 702
+157 / 715
 
 | total | easy | medium | hard | 
 |:-----:|:----:|:------:|:----:|
-|  153  |  89  |   50   |  14  |
+|  157  |  90  |   53   |  14  |
+
+## Winter target
+
+Due to final exams, the progress has stopped for 2 weeks.
+
+The target number is total of 256 by the end of January.
