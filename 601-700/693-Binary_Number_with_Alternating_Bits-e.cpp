@@ -21,6 +21,7 @@
 // Explanation:
 // The binary representation of 10 is: 1010.
 
+// bad solution
 class Solution {
   public:
     bool hasAlternatingBits(int n) {
@@ -33,3 +34,25 @@ class Solution {
         return (temp ^ (n ^ n >> 1)) == 0xffffffff;
     }
 };
+
+// + and - have higher precedence than &
+
+// good 1
+bool hasAlternatingBits(int n) { return !((n ^= n >> 1) & n + 1); }
+
+// good 2
+bool hasAlternatingBits(int n) { return !((n ^= n >> 2) & n - 1); }
+
+// other method 1
+bool hasAlternatingBits(int n) {
+    if (n == 0xaaaaaaaa)
+        return true;
+    bitset<32> b((n ^ n >> 1) + 1);
+    return b.count() == 1;
+}
+
+// other method 2
+bool hasAlternatingBits(int n) {
+    bitset<32> b(n ^ n >> 2);
+    return b.count() == 1;
+}
