@@ -51,12 +51,12 @@ class LRUCache {
     list<int> keys;
     // to achieve fast erase by value from list
     // use pair record every list node iter and value together
-    using valiter = pair<int, list<int>::iterator>;
+    using val_keyiter = pair<int, list<int>::iterator>;
     // average O(1) access time, choose unordered_map
-    unordered_map<int, valiter> cache;
+    unordered_map<int, val_keyiter> cache;
 
     // actually change key position in the list
-    void touch(unordered_map<int, valiter>::iterator iter) {
+    void touch(decltype(cache)::iterator &iter) {
         keys.erase(iter->second.second);
         keys.push_front(iter->first);
         // now in cache, key keeps same, value keeps same
