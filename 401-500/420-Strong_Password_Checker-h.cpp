@@ -18,11 +18,23 @@ class Solution {
   public:
     int strongPasswordChecker(string s) {
         int missing_type = 3;
-        if (any_of(s.begin(), s.end(), [](char &c) { return islower(c); }))
+
+        // Like all other functions from <cctype>, the behavior of std::isupper
+        // is undefined if the argument's value is neither representable as
+        // unsigned char nor equal to EOF. To use these functions safely with
+        // plain chars (or signed chars), the argument should first be converted
+        // to unsigned char.
+        // Similarly, they should not be directly used with standard algorithms
+        // when the iterator's value type is char or signed char. Instead,
+        // convert the value to unsigned char first.
+        if (any_of(s.begin(), s.end(),
+                   [](unsigned char c) { return islower(c); }))
             --missing_type;
-        if (any_of(s.begin(), s.end(), [](char &c) { return isupper(c); }))
+        if (any_of(s.begin(), s.end(),
+                   [](unsigned char c) { return isupper(c); }))
             --missing_type;
-        if (any_of(s.begin(), s.end(), [](char &c) { return isdigit(c); }))
+        if (any_of(s.begin(), s.end(),
+                   [](unsigned char c) { return isdigit(c); }))
             --missing_type;
 
         int sz = s.size();
