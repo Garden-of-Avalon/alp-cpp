@@ -3,6 +3,7 @@
 // nums[j] is at most t and the absolute difference between i and j is at most
 // k.
 
+// self balanced BST
 class Solution {
   public:
     bool containsNearbyAlmostDuplicate(vector<int> &nums, int k, int t) {
@@ -25,3 +26,5 @@ class Solution {
         return false;
     }
 };
+
+// bucket sort, TODO
