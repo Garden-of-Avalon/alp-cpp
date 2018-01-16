@@ -12,13 +12,13 @@ number-title-difficulty (e-easy, m-medium, h-hard)
 
 "NEED O" and "TODO" mean that "need further work/optimization".
 
-## Statistics on 2018-1-9
+## Statistics on 2018-1-15
 
-173 / 726
+200 / 730
 
-| total | easy | medium | hard | 
-|:-----:|:----:|:------:|:----:|
-|  173  |  92  |   61   |  20  |
+| easy  | medium | hard | 
+|:-----:|:------:|:----:|
+|  106  |   72   |  22  |
 
 ## Winter target
 
