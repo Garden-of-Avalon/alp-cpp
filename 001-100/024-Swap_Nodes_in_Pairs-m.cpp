@@ -61,6 +61,7 @@ class Solution {
             swap(curr, (*pp)->next);
             (*pp)->next->next = curr;
             pp = &(*pp)->next->next;
+            // pp now is &(last node of current part)->next
         }
         return head;
     }
