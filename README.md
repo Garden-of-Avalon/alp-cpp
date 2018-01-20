@@ -20,8 +20,23 @@ number-title-difficulty (e-easy, m-medium, h-hard)
 |:-----:|:------:|:----:|
 |  106  |   72   |  22  |
 
-## Winter target
+## Targets
 
-Due to final exams, the progress has stopped for 2 weeks.
-
-The target number is total of 256 by the end of January.
+|  Date  |  Target  | Complete? |
+|:------:|:--------:|:---------:|
+|  1-27  |   225    |           |
+|  2-3   |   250    |           |
+|  2-10  |   275    |           |
+|  2-17  |   300    |           |
+|  2-24  |   325    |           |
+|  3-3   |   350    |           |
+|  3-10  |   375    |           |
+|  3-17  |   400    |           |
+|  3-24  |   425    |           |
+|  3-31  |   450    |           |
+|  4-7   |   475    |           |
+|  4-14  |   500    |           |
+|  4-21  |   525    |           |
+|  4-28  |   550    |           |
+|  5-5   |   575    |           |
+|  5-12  |   600    |           |
