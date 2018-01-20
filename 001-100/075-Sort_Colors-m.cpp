@@ -75,3 +75,25 @@ class Solution {
         return;
     }
 };
+
+// for k colors, bisise counting sort (should be the best solution)
+// in-place(?) swap method
+void sortColors2(vector<int> &colors, int left, int right, int colorFrom,
+                 int colorTo) {
+    if (colorFrom == colorTo || left >= right)
+        return;
+
+    int colorMid = (colorFrom + colorTo) / 2;
+    int l = left, r = right;
+    while (l <= r) {
+        while (l <= r && colors[l] <= colorMid)
+            l++;
+        while (l <= r && colors[r] > colorMid)
+            r--;
+        if (l <= r)
+            swap(colors[l++], colors[r--]);
+    }
+
+    sortColors2(colors, left, r, colorFrom, colorMid);
+    sortColors2(colors, l, right, colorMid + 1, colorTo);
+}
