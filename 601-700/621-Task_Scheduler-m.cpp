@@ -62,16 +62,13 @@ class Solution {
 
         int max_val = *max_element(task_cnt.begin(), task_cnt.end());
 
-        int sum = tasks.size(), period = max_val * (n + 1);
+        int period = (max_val - 1) * (n + 1);
 
-        if (sum < period) {
-            for (auto &tc : task_cnt)
-                if (tc == max_val)
-                    ++period;
-            return period - (n + 1);
-        }
+        for (auto &tc : task_cnt)
+            if (tc == max_val)
+                ++period;
 
-        return sum; // think about why
+        return max(static_cast<int>(tasks.size()), period); // think about why
     }
 };
 
