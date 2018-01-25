@@ -6,21 +6,13 @@ My LeetCode profile:
 
 https://leetcode.com/ysmiles/
 
-## naming rules:
+## Naming rules
 
-number-title-difficulty (e-easy, m-medium, h-hard)
+number-this_is_title-difficulty (e-easy, m-medium, h-hard)
 
 "NEED O" and "TODO" mean that "need further work/optimization".
 
-## Statistics on 2018-1-15
-
-200 / 730
-
-| easy  | medium | hard | 
-|:-----:|:------:|:----:|
-|  106  |   72   |  22  |
-
-## Targets
+## Problem solving targets - start from 200
 
 |  Date  |  Target  | Complete? |
 |:------:|:--------:|:---------:|
@@ -40,3 +32,32 @@ number-title-difficulty (e-easy, m-medium, h-hard)
 |  4-28  |   550    |           |
 |  5-5   |   575    |           |
 |  5-12  |   600    |           |
+
+## TaoLu: general algorithms and frequent question summaries plan
+
+1. DFS and BFS -- done
+
+2. Trie
+
+3. Backtracking
+    - subarrays
+    - permutation
+    - regex
+
+4. Sorting
+    - merge sort
+    - quick sort
+    - insertion sort
+    - selection sort
+    - counting sort
+
+5. BST
+    - self-balanced BST
+
+6. Bit manipulation
+    - find the only element which exists once/twice... 
+    - counting 1s
+
+7. Math related
+
+8. DP
