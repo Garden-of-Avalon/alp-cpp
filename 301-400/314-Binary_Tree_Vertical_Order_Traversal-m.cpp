@@ -81,18 +81,46 @@
 class Solution {
   public:
     vector<vector<int>> verticalOrder(TreeNode *root) {
-        stack<TreeNode *> temp;
-        vector<vector<int>> ret;
+        if (!root)
+            return {};
 
-        while (root) {
-            temp.push(root);
-            if(root->right)
-                temp.push(root->right);
+        queue<pair<TreeNode *, int>> temp;
+        temp.push({root, 0});
 
-            if(root->left)
-                root = root->left;
+        vector<vector<int>> retl, retr; // left, right
+        auto addtoret = [](vector<vector<int>> &r, TreeNode *n, int i) {
+            if (i + 1 > r.size())
+                r.resize(i + 1);
+            r[i].push_back(n->val);
+
+        };
+
+        int vlen = 0;
+
+        // do bfs
+        while (!temp.empty()) {
+            root = temp.front().first;
+            vlen = temp.front().second;
+            temp.pop();
+
+            // return value logic
+            if (vlen >= 0)
+                addtoret(retr, root, vlen);
             else
-                ret.push_back({root->val});
+                addtoret(retl, root, -vlen - 1);
+
+            if (root->left)
+                temp.push({root->left, vlen - 1});
+
+            if (root->right)
+                temp.push({root->right, vlen + 1});
         }
+
+        reverse(retl.begin(), retl.end());
+        copy(retr.begin(), retr.end(), back_inserter(retl));
+
+        return retl;
     }
 };
+
+// other method: instead of retl and retr, use map and vlen as key
