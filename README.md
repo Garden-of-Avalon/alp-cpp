@@ -40,7 +40,7 @@ number-this_is_title-difficulty (e-easy, m-medium, h-hard)
     - counting sort
 
 5. BST
-    - self-balanced BST
+    - self-balanced BST -- it seems that AVL tree and red-black tree won't be tested. (so they are put on some day later).
 
 6. Bit manipulation
     - find the only element which exists once/twice... 
