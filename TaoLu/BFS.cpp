@@ -9,6 +9,8 @@
  */
 
 // Breadth-first search
+// https://en.wikipedia.org/wiki/Tree_traversal
+
 void bfs(TreeNode *root) {
     if (!root)
         return;

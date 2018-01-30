@@ -9,6 +9,7 @@
  */
 
 // Depth-first search
+// https://en.wikipedia.org/wiki/Tree_traversal
 
 // ********************
 // Pre-order

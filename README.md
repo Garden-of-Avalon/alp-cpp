@@ -61,3 +61,5 @@ number-this_is_title-difficulty (e-easy, m-medium, h-hard)
 7. Math related
 
 8. DP
+
+9. KMP (Knuth–Morris–Pratt) algorithm -- done
