@@ -25,7 +25,7 @@ number-this_is_title-difficulty (e-easy, m-medium, h-hard)
 
 1. DFS and BFS -- done
 
-2. Trie
+2. Trie - 208 -- done
 
 3. Backtracking
     - subarrays
