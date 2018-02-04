@@ -14,12 +14,11 @@ number-this_is_title-difficulty (e-easy, m-medium, h-hard)
 
 ## Problem solving targets - start from 200
 
-|  Date  |  Target  | Complete? |
-|:------:|:--------:|:---------:|
-|  1-27  |   225    |    213    |
-|  2-3   |   250    |           |
-|  2-10  |   275    |           |
-|  2-17  |   300    |           |
+|  Date  |  Target  | Completion number | Completion date |
+|:------:|:--------:|:-----------------:|:---------------:|
+|  1-27  |   225    |        213        |                 |
+|  2-3   |   250    |                   |                 |
+|  2-10  |   275    |                   |                 |
 
 ## TaoLu: general algorithms and frequent question summaries plan
 
