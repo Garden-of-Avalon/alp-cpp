@@ -27,9 +27,6 @@ class Solution {
 
   public:
     string shortestPalindrome(string s) {
-        if (s.empty())
-            return s;
-
         string T = prepare(s);   // transformed string
         vector<int> P(T.size()); // longest palindrome
 
