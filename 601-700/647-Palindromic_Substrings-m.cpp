@@ -36,18 +36,18 @@ class Solution {
 
   public:
     int countSubstrings(string s) {
-        string T = prepare(s); // transformed string
+        string T = prepare(s);   // transformed string
         vector<int> P(T.size()); // longest palindrome
 
         int C = 0, R = 0; // center, right
 
-        for(int i = 1; i < T.size() - 1; ++i) {
+        for (int i = 1; i < T.size() - 1; ++i) {
             P[i] = R > i ? min(R - i, P[2 * C - i]) : 0;
 
             while (T[i + P[i] + 1] == T[i - P[i] - 1])
                 ++P[i];
-            
-            if(i + P[i] > R) {
+
+            if (i + P[i] > R) {
                 C = i;
                 R = i + P[i];
             }
@@ -55,9 +55,31 @@ class Solution {
 
         int ret = 0;
 
-        for(auto &&pl : P)
+        for (auto &&pl : P)
             ret += (pl + 1) / 2;
 
         return ret;
     }
 };
+
+// method 2, extend center
+class Solution {
+  public:
+    int countSubstrings(string S) {
+        int n = S.size();
+        int ret = 0, l, r;
+        for (int i = 0; i < n; ++i) {
+            l = r = i;
+            while (l >= 0 && r < n && S[l--] == S[r++])
+                ++ret;
+
+            l = i, r = i + 1;
+            while (l >= 0 && r < n && S[l--] == S[r++])
+                ++ret;
+        }
+        return ret;
+    }
+};
+
+
+// method 3, dp, TODO
