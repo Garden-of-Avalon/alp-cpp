@@ -50,3 +50,5 @@ number-this_is_title-difficulty (e-easy, m-medium, h-hard)
 8. DP
 
 9. KMP (Knuth–Morris–Pratt) algorithm -- done
+
+10. Manacher’s algorithm - 647 -- done
