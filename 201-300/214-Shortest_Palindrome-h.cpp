@@ -31,7 +31,11 @@ class Solution {
         vector<int> P(T.size()); // longest palindrome
 
         int C = 0, R = 0; // center, right
-        for (int i = 1; i < T.size() - 1; ++i) {
+        // for (int i = 1; i < T.size() - 1; ++i) {
+        int hsz = T.size() / 2 + 1;
+        // actually to half size is enough,
+        // after half size, pl cannot extend to beginning
+        for (int i = 1; i < hsz; ++i) {
             P[i] = R > i ? min(R - i, P[2 * C - i]) : 0;
 
             while (T[i + P[i] + 1] == T[i - P[i] - 1])
@@ -45,7 +49,7 @@ class Solution {
 
         // get longest pl which also extend to beginning
         int pl_i = 0, pl_len = 0;
-        for (int i = 1; i < P.size() - 1; ++i)
+        for (int i = 1; i < hsz; ++i)
             if (pl_len < P[i] && i == P[i] + 1) {
                 pl_len = P[i];
                 pl_i = i;
