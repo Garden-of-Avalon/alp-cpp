@@ -112,3 +112,36 @@ class Solution {
         return ret;
     }
 };
+
+// further simplified
+class Solution {
+  public:
+    vector<int> exclusiveTime(int n, vector<string> &logs) {
+        vector<int> ret(n);
+
+        stack<int> s;
+        int id, t, prevt;
+        char status;
+
+        for (auto &&lg : logs) {
+            auto c = lg.find(':');
+            id = stoi(lg.substr(0, c));
+            status = lg[c + 1];
+            t = stoi(lg.substr(lg.rfind(':') + 1)) + (status == 'e');
+
+            if (s.empty())
+                s.push(id);
+            else {
+                ret[s.top()] += t - prevt;
+                if (id == s.top() && status == 'e')
+                    s.pop();
+                else
+                    s.push(id);
+            }
+
+            prevt = t;
+        }
+
+        return ret;
+    }
+};
