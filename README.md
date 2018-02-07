@@ -54,3 +54,7 @@ number-this_is_title-difficulty (e-easy, m-medium, h-hard)
 10. Manacher’s algorithm - 647, 214
 
 11. string parsing - 636
+
+12. Serialize and Deserialize Binary Tree - 297
+
+13. Print out a tree - taolu
