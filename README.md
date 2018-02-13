@@ -14,18 +14,17 @@ number-this_is_title-difficulty (e-easy, m-medium, h-hard)
 
 ## Problem solving targets - start from 200
 
-|  Date  |  Target  | Complete? |
-|:------:|:--------:|:---------:|
-|  1-27  |   225    |    213    |
-|  2-3   |   250    |           |
-|  2-10  |   275    |           |
-|  2-17  |   300    |           |
+|  Date  |  Target  | Completion number | Completion date |
+|:------:|:--------:|:-----------------:|:---------------:|
+|  1-27  |   225    |        213        |       2-6       |
+|  2-3   |   250    |        222        |                 |
+|  2-10  |   275    |        235        |                 |
 
 ## TaoLu: general algorithms and frequent question summaries plan
 
-1. DFS and BFS -- done
+1. DFS and BFS - taolu
 
-2. Trie - 208 -- done
+2. Trie - 208
 
 3. Backtracking
     - subarrays
@@ -50,4 +49,12 @@ number-this_is_title-difficulty (e-easy, m-medium, h-hard)
 
 8. DP
 
-9. KMP (Knuth–Morris–Pratt) algorithm -- done
+9. KMP (Knuth–Morris–Pratt) algorithm - taolu, 214
+
+10. Manacher’s algorithm - 647, 214
+
+11. string parsing - 636
+
+12. Serialize and Deserialize Binary Tree - 297
+
+13. Print out a tree - taolu
