@@ -57,4 +57,6 @@ number-this_is_title-difficulty (e-easy, m-medium, h-hard)
 
 12. Serialize and Deserialize Binary Tree - 297
 
-13. Print out a tree - taolu
+13. Print out a tree - taolu - not finished yet
+
+14. Priority queue - 252, 253, 218
