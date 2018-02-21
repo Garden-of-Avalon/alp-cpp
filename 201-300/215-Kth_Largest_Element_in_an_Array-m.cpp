@@ -27,3 +27,31 @@ class Solution {
         return pq.top();
     }
 };
+
+// quick select
+class Solution {
+  public:
+    int findKthLargest(vector<int> &nums, int k) {
+        int l = 0, r = nums.size() - 1;
+
+        while (true) {
+            // partition
+            int storei = l;
+            // select pivot value
+            swap(nums[l + rand() % (r - l + 1)], nums[r]);
+            for (int i = l; i < r; ++i)
+                if (nums[i] < nums[r])
+                    swap(nums[storei++], nums[i]);
+            swap(nums[storei], nums[r]); // nums[storei] is the pivot now
+
+            if (storei == nums.size() - k)
+                return nums[storei];
+            else if (storei < nums.size() - k)
+                l = storei + 1;
+            else
+                r = storei - 1;
+        }
+
+        // since k is always valid, function should have returned
+    }
+};
