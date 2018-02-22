@@ -32,3 +32,22 @@ class Solution {
         return ret;
     }
 };
+
+// method 3
+// if all comb cannot be calculated as compile time, this method is not good
+class Solution {
+    using ull = unsigned long long;
+    constexpr ull comb(ull n, ull k) {
+        return k > 0 ? comb(n, k - 1) * (n + 1 - k) / k : 1;
+    }
+
+  public:
+    vector<int> getRow(int rowIndex) {
+        vector<int> ret;
+
+        for (int i = 0; i <= rowIndex; ++i)
+            ret.push_back(comb(rowIndex, i));
+
+        return ret;
+    }
+};
