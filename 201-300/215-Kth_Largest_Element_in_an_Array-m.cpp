@@ -55,3 +55,7 @@ class Solution {
         // since k is always valid, function should have returned
     }
 };
+
+// quick select from standard library
+// std::nth_element(v.begin(), v.begin()+1, v.end(), std::greater<int>());
+// std::cout << "The second largest element is " << v[1] << '\n';
