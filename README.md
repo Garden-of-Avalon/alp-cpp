@@ -26,8 +26,10 @@ number-this_is_title-difficulty (e-easy, m-medium, h-hard)
 2. Trie - 208
 
 3. Backtracking
-    - subarrays
+    - subsets: 78
     - permutation
+    - combination sum: 39, 40, 216
+    - palindrome partitioning
     - regex
 
 4. Sorting
