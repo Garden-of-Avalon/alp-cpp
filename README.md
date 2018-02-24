@@ -48,7 +48,7 @@ number-this_is_title-difficulty (e-easy, m-medium, h-hard)
 
 7. Math related
 
-8. DP
+8. DP - 115
 
 9. KMP (Knuth–Morris–Pratt) algorithm - taolu, 214
 
