@@ -21,47 +21,57 @@ number-this_is_title-difficulty (e-easy, m-medium, h-hard)
 
 ## TaoLu: general algorithms and frequent question summaries plan
 
-1. DFS and BFS - taolu
+### General
 
-2. Trie - 208
+Priority queue - 252, 253, 218
 
-3. Backtracking
+Backtracking
+
     - subsets: 78
     - permutation
     - combination sum: 39, 40, 216
     - palindrome partitioning
     - regex
 
-4. Sorting
+Sorting
+
     - merge sort
     - quick sort
     - insertion sort
     - selection sort
     - counting sort
 
-5. BST
-    - self-balanced BST -- it seems that AVL tree and red-black tree won't be tested. (so they are put on some day later).
 
-6. Bit manipulation
-    - find the only element which exists once/twice... 
+Bit manipulation
+
+    - find the only element which exists once/twice...
     - counting 1s
 
-7. Math related
+Math related
 
-8. DP - 115
+Dynamic programming - 115
 
-9. KMP (Knuth–Morris–Pratt) algorithm - taolu, 214
+Finite Automata -- not likely to test, but interesting to know -- regular expression implementation
 
-10. Manacher’s algorithm - 647, 214
+    - DFA - Deterministic Finite Automaton
+    - NFA - Nondeterministic Finite Automaton
 
-11. string parsing - 636
+### String
 
-12. Serialize and Deserialize Binary Tree - 297
+KMP (Knuth–Morris–Pratt) algorithm - taolu, 214
 
-13. Print out a tree - taolu - not finished yet
+Manacher’s algorithm - 647, 214
 
-14. Priority queue - 252, 253, 218
+String parsing - 636
 
-15. Finite Automata -- not likely to test, but interesting to know -- regular expression implementation
-    DFA - Deterministic Finite Automaton
-    NFA - Nondeterministic Finite Automaton 
+### Tree
+
+DFS and BFS - taolu
+
+Trie - 208
+
+Serialize and Deserialize Binary Tree - 297
+
+Print out a tree - taolu - not finished yet
+
+Binary search tree - self-balanced BST -- AVL tree and red-black tree -- not likely to test
