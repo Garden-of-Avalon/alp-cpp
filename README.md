@@ -61,3 +61,7 @@ number-this_is_title-difficulty (e-easy, m-medium, h-hard)
 13. Print out a tree - taolu - not finished yet
 
 14. Priority queue - 252, 253, 218
+
+15. Finite Automata -- not likely to test, but interesting to know -- regular expression implementation
+    DFA - Deterministic Finite Automaton
+    NFA - Nondeterministic Finite Automaton 
