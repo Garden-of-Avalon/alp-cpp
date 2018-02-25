@@ -17,7 +17,8 @@ number-this_is_title-difficulty (e-easy, m-medium, h-hard)
 |  Date  |  Target  | Completion number | Completion date |
 |:------:|:--------:|:-----------------:|:---------------:|
 |  2-3   |   250    |        222        |       2-21      |
-|  2-24  |   275    |                   |                 |
+|  2-24  |   275    |        259        |                 |
+|  3-3   |   285    |                   |                 |
 
 ## TaoLu: general algorithms and frequent question summaries plan
 
