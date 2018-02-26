@@ -37,3 +37,24 @@ class Solution {
 //         return profit;
 //     }
 // };
+
+// Do it again
+// class Solution {
+//   public:
+//     int maxProfit(vector<int> &prices) {
+//         int profit = 0;
+//         int i = 0;
+//         while (i < prices.size()) {
+//             while (i + 1 < prices.size() && prices[i] >= prices[i + 1])
+//                 ++i;
+//             int buyin = prices[i];
+//             while (i + 1 < prices.size() && prices[i] < prices[i + 1])
+//                 ++i;
+//             profit += prices[i] - buyin;
+//             ++i;
+//         }
+//         return profit;
+//     }
+// };
+
+// note: this is not suitable for the dp method (123)
