@@ -25,3 +25,18 @@ class Solution {
         return profit;
     }
 };
+
+// rewrite ref 123
+class Solution {
+  public:
+    int maxProfit(vector<int> &prices) {
+        // after 1st buy, after 1st sell
+        array<int, 2> mymoney{INT_MIN, 0};
+        for(auto &&p :prices) {
+            mymoney[1] = max(mymoney[1], mymoney[0] + p);
+            mymoney[0] = max(mymoney[0], -p);
+        }
+
+        return mymoney[1];
+    }
+};
