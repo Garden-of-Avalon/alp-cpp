@@ -61,13 +61,13 @@ class Solution {
         for (int i = 0; i < inorder.size(); ++i)
             inorder_val_index.emplace(inorder[i], i);
 
-        function<TreeNode *(int, int, int)> build = [&](int pst, int ist,
-                                                        int iend) {
-            if (pst == preorder.size())
+        function<TreeNode *(int, int, int)> build =
+            [&](int pst, int ist, int iend) -> TreeNode * {
+            if (pst >= preorder.size() || ist > iend)
                 return NULL;
 
-            TreeNode *root = new TreeNode(preorder[i]);
-            int index = inorder_val_index[preorder[i]];
+            TreeNode *root = new TreeNode(preorder[pst]);
+            int index = inorder_val_index[preorder[pst]];
 
             root->left = build(pst + 1, ist, index - 1);
             // (index - ist) elements go left
@@ -76,6 +76,29 @@ class Solution {
             return root;
         };
 
-        return root;
+        return build(0, 0, inorder.size() - 1);
+    }
+};
+
+// recursive 2: dfs
+// actually same as previous one
+class Solution {
+  public:
+    TreeNode *buildTree(vector<int> &preorder, vector<int> &inorder) {
+        function<TreeNode *(int &, int &, TreeNode *)> dfs =
+            [&](int &pst, int &ist, TreeNode *pivot) -> TreeNode * {
+            if (ist < inorder.size() &&
+                (pivot == NULL || inorder[ist] != pivot->val)) {
+                TreeNode *root = new TreeNode(preorder[pst++]);
+                root->left = dfs(pst, ist, root);
+                ++ist;
+                root->right = dfs(pst, ist, pivot);
+                return root;
+            } else
+                return NULL;
+        };
+
+        int pi = 0, ii = 0;
+        return dfs(pi, ii, NULL);
     }
 };
