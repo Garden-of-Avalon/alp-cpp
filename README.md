@@ -33,6 +33,7 @@ Backtracking
     - combination sum: 39, 40, 216
     - palindrome partitioning
     - regex
+    - sudoku solver: 37
 
 Sorting
 
