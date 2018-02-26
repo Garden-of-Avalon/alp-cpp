@@ -51,7 +51,7 @@ Bit manipulation
 
 Math related
 
-Dynamic programming - 115
+Dynamic programming - 115, 123
 
 Finite Automata -- not likely to test, but interesting to know -- regular expression implementation
 
