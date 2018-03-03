@@ -6,6 +6,11 @@ My LeetCode profile:
 
 https://leetcode.com/ysmiles/
 
+For Java version (2nd round), please refer:
+
+https://github.com/ysmiles/leetcode-java
+
+
 ## Naming rules
 
 number-this_is_title-difficulty (e-easy, m-medium, h-hard)
