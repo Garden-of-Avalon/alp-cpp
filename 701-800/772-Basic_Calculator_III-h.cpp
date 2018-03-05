@@ -25,19 +25,29 @@ class Solution {
         stack<long long> nums;
         stack<char> ops;
 
-        auto calculate = [&]() {
+        auto muldiv = [&]() {
             long long curr_num = nums.top();
             nums.pop();
-            while (!ops.empty() && ops.top() != '(') {
+            while (!ops.empty() && ops.top() != '+' && ops.top() != '-') {
                 if (ops.top() == '*')
                     nums.top() *= curr_num;
                 else if (ops.top() == '/')
                     nums.top() /= curr_num;
-                else if (ops.top() == '+')
+                curr_num = nums.top();
+                nums.pop();
+                ops.pop();
+            }
+            nums.push(curr_num);
+        };
+
+        auto addminus = [&]() {
+            long long curr_num = nums.top();
+            nums.pop();
+            while (!ops.empty()) {
+                if (ops.top() == '+')
                     nums.top() += curr_num;
                 else if (ops.top() == '-')
                     nums.top() -= curr_num;
-
                 curr_num = nums.top();
                 nums.pop();
                 ops.pop();
