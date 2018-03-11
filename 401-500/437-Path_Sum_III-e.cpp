@@ -34,14 +34,17 @@ class Solution {
     int pathSum(TreeNode *root, int sum) {
         if (!root)
             return 0;
+
         TreeNode *temp = root;
         int result = 0, counter = 0;
+
         stack<TreeNode *> parents;
         parents.push(root);
         while (!parents.empty()) {
             result += temp->val;
             if (result == sum)
                 ++counter;
+
             if (temp->left)
                 parents.push(temp = temp->left);
             else if (temp->right)
@@ -70,5 +73,23 @@ class Solution {
         }
 
         return counter + pathSum(root->left, sum) + pathSum(root->right, sum);
+    }
+};
+
+// easy recursive
+class Solution {
+    int from_here(TreeNode *root, int sum) {
+        if (!root)
+            return 0;
+        sum -= root->val;
+        return (sum ? 0 : 1) + from_here(root->left, sum) +
+               from_here(root->right, sum);
+    }
+
+  public:
+    int pathSum(TreeNode *root, int sum) {
+        return from_here(root, sum) +
+               (root ? pathSum(root->left, sum) + pathSum(root->right, sum)
+                     : 0);
     }
 };
