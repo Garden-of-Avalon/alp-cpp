@@ -17,14 +17,14 @@ number-this_is_title-difficulty (e-easy, m-medium, h-hard)
 
 "NEED O" and "TODO" mean that "need further work/optimization".
 
-## Problem solving targets - start from 200
+## Progress from 200
 
-|  Date  |  Target  | Completion number | Completion date |
-|:------:|:--------:|:-----------------:|:---------------:|
-|  2-3   |   250    |        222        |       2-21      |
-|  2-24  |   275    |        259        |       2-28      |
-|  3-3   |   285    |        280        |       3-10      |
-|  3-17  |   300    |                   |                 |
+|   Date   | Completion number |
+|:--------:|:-----------------:|
+|   2-21   |        222        |
+|   2-28   |        259        |
+|   3-10   |        280        |
+|   3-22   |        292        |
 
 ## TaoLu: general algorithms and frequent question summaries plan
 
