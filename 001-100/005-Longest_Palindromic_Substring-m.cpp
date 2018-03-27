@@ -8,6 +8,9 @@
 // Input: "cbbd"
 // Output: "bb"
 
+
+// TODO: expand around center; Manacher's algorithm
+
 class Solution {
     bool checkPalindrome(const string &s, int start, int end) {
         while (start < end)
