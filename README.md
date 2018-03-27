@@ -10,6 +10,9 @@ For Java version (2nd round), please refer:
 
 https://github.com/ysmiles/leetcode-java
 
+## One sentence summary of questions
+
+https://github.com/ysmiles/leetcode-cpp/blob/master/One_sentence_summary.md
 
 ## Naming rules
 
