@@ -28,6 +28,7 @@ number-this_is_title-difficulty (e-easy, m-medium, h-hard)
 |   2-28   |        259        |
 |   3-10   |        280        |
 |   3-22   |        292        |
+|   3-31   |        300        |
 
 ## TaoLu: general algorithms and frequent question summaries plan
 
