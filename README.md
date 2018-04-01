@@ -62,10 +62,11 @@ Math related
 
 Dynamic programming - 115, 123, 312, 518
 
-Finite Automata -- not likely to test, but interesting to know -- regular expression implementation
+Finite Automata -- good to know -- regular expression implementation - 309
 
     - DFA - Deterministic Finite Automaton
     - NFA - Nondeterministic Finite Automaton
+
 
 ### String
 
