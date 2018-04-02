@@ -77,6 +77,8 @@ Manacher’s algorithm - 647, 214
 
 String parsing - 636
 
+Substring at least k repeating chars - 395
+
 ### Tree
 
 DFS and BFS - taolu
