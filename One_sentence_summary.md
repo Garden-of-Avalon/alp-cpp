@@ -34,11 +34,19 @@ For review purpose. Not strictly one sentence, but I will try to keep it less th
 
 15. 3 sum: general n-sum question, sort and then use 2 pointers for each loop; remember to bypass same elements to avoid duplicate triplets.
 
+99. Recover Binary Search Tree: Morris in-order traversal.
+
 ## 101-200
 
 ## 201-300
 
+222. Count Complete Tree Nodes: Calculate height of left and right subtree.
+
 ## 301-400
+
+309. Best Time to Buy and Sell Stock with Cooldown: DP, finite state machine.
+
+389. Find the Difference: counter or XOR all.
 
 ## 401-500
 

@@ -28,6 +28,7 @@ number-this_is_title-difficulty (e-easy, m-medium, h-hard)
 |   2-28   |        259        |
 |   3-10   |        280        |
 |   3-22   |        292        |
+|   3-31   |        300        |
 
 ## TaoLu: general algorithms and frequent question summaries plan
 
@@ -62,10 +63,11 @@ Math related
 
 Dynamic programming - 115, 123, 312, 518
 
-Finite Automata -- not likely to test, but interesting to know -- regular expression implementation
+Finite Automata -- good to know -- regular expression implementation - 309
 
     - DFA - Deterministic Finite Automaton
     - NFA - Nondeterministic Finite Automaton
+
 
 ### String
 
@@ -75,9 +77,13 @@ Manacher’s algorithm - 647, 214
 
 String parsing - 636
 
+Substring at least k repeating chars - 395
+
 ### Tree
 
 DFS and BFS - taolu
+
+Morris in-order traversal, O(n) time and O(1) space - 99
 
 Trie - 208
 
