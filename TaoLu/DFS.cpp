@@ -80,6 +80,32 @@ void iin(TreeNode *root) {
         }
 }
 
+void morrisin(TreeNode *root) {
+    TreeNode *pre = nullptr;
+    while (root)
+        if (!root->left) {
+            // visit root
+
+            root = root->right;
+        } else {
+            pre = root->left;
+            while (pre->right && pre->right != root)
+                pre = pre->right;
+
+            // now pre is the actual inorder predecessor of root or pre == root
+            if (!pre->right) {
+                pre->right = root;
+                root = root->left;
+            } else {
+                pre->right = nullptr;
+
+                // visit root
+
+                root = root->right;
+            }
+        }
+}
+
 // ********************
 // Post-order
 // ********************
