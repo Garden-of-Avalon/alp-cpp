@@ -17,6 +17,72 @@
  * };
  */
 
+// recursion
+class Solution {
+  public:
+    int closestValue(TreeNode *root, double target) {
+        int a = root->val;
+        TreeNode *child = target < root->val ? root->left : root->right;
+        if (!child)
+            return a;
+        int b = closestValue(child, target);
+        return abs(a - target) < abs(b - target) ? a : b;
+    }
+};
+
+// binary search
+class Solution {
+  public:
+    int closestValue(TreeNode *root, double target) {
+        pair<TreeNode *, TreeNode *> bound = make_pair(nullptr, nullptr);
+        while (root) {
+            if (target == root->val)
+                return target;
+
+            if (target > root->val) {
+                bound.first = root;
+                root = root->right;
+            } else {
+                bound.second = root;
+                root = root->left;
+            }
+        }
+
+        return (!bound.second || bound.first && target - bound.first->val <
+                                                    bound.second->val - target)
+                   ? bound.first->val
+                   : bound.second->val;
+    }
+};
+
+// binary search
+class Solution {
+  public:
+    int closestValue(TreeNode *root, double target) {
+        pair<double, double> bound = make_pair(numeric_limits<double>::lowest(),
+                                               numeric_limits<double>::max());
+        while (root) {
+            if (target == root->val)
+                return target;
+
+            if (target > root->val) {
+                bound.first = root->val;
+                root = root->right;
+            } else {
+                bound.second = root->val;
+                root = root->left;
+            }
+        }
+
+        return (bound.second == numeric_limits<double>::max() ||
+                bound.first != numeric_limits<double>::lowest() &&
+                    target - bound.first < bound.second - target)
+                   ? bound.first
+                   : bound.second;
+    }
+};
+
+// inorder traverse
 class Solution {
   public:
     int closestValue(TreeNode *root, double target) {
