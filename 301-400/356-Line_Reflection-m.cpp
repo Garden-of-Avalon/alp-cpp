@@ -51,13 +51,10 @@ class Solution {
         double line2x = points[0].first + points[sz - 1].first,
                line = line2x / 2;
 
-        for (int i = 0; i <= mid; ++i) {
-            int j = sz - 1 - i;
-
+        for (int i = 0, j = sz - 1; i <= mid; ++i, --j) {
             // bypass the points at the line
             if (points[i].first == line && points[j].first == line)
                 continue;
-
             // check
             if (points[i].first + points[j].first != line2x ||
                 points[i].second != points[j].second)
