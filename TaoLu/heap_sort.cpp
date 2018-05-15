@@ -6,9 +6,7 @@ using namespace std;
 template <typename T> class HeapSort {
     // make A[root] the max value of the subtree
     void heapify(vector<T> &A, int root, int end) {
-        // initialize
         int max_val_idx = root;
-        // assume valid, checked outside
         int left = 2 * root + 1, right = left + 1;
 
         if (left < end && A[left] > A[max_val_idx])
