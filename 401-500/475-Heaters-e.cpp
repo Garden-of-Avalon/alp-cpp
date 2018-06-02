@@ -23,6 +23,32 @@
 // Explanation: The two heater was placed in the position 1 and 4. We need to
 // use radius 1 standard, then all the houses can be warmed.
 
+// binary search
+class Solution {
+  public:
+    int findRadius(vector<int> &houses, vector<int> &heaters) {
+        if (houses.empty())
+            return 0;
+        if (heaters.empty())
+            return INT_MAX; // maximun possible value
+
+        sort(heaters.begin(), heaters.end());
+
+        int r = 0;
+
+        for (auto &&ho : houses) {
+            auto ht_iter = lower_bound(heaters.begin(), heaters.end(), ho);
+
+            int r1 = ht_iter != heaters.end() ? *ht_iter - ho : INT_MAX;
+            int r2 = ht_iter != heaters.begin() ? ho - *prev(ht_iter) : INT_MAX;
+
+            r = max(r, min(r1, r2));
+        }
+
+        return r;
+    }
+};
+
 class Solution {
   public:
     int findRadius(vector<int> &houses, vector<int> &heaters) {
