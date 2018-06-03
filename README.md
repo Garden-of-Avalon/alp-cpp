@@ -30,6 +30,7 @@ number-this_is_title-difficulty (e-easy, m-medium, h-hard)
 |   3-22   |        292        |
 |   3-31   |        300        |
 |   5-15   |        350        |
+|   6-3    |        375        |
 
 ## TaoLu: general algorithms and frequent question summaries plan
 
