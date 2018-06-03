@@ -49,3 +49,11 @@ class Solution {
             }
     }
 };
+
+// {1, 2, 3, 4} => {4, 1, 2, 3}
+// swap_index(0, 1)
+// swap_index(0, 2)
+// swap_index(0, 3)
+
+// in a matrix, for point(i, j), the correnspoding 0~3 indices are
+// [i][j], [j][n - 1 - i], [n - 1 - i][n - 1 - j], [n - 1 - j][i]
