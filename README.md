@@ -81,6 +81,10 @@ String parsing - 636
 
 Substring at least k repeating chars - 395
 
+Regular expression usage - 468
+
+Parse string to vector of int/string - taolu
+
 ### Tree
 
 DFS and BFS - taolu
