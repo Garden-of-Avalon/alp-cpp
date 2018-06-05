@@ -7,14 +7,17 @@ class Solution {
     string longestCommonPrefix(vector<string> &strs) {
         if (strs.empty())
             return "";
-        sort(strs.begin(), strs.end(),
-             [](string &a, string &b) { return a.size() < b.size(); });
-        int shortest_length = strs[0].size();
-        for (int i = 0; i < shortest_length; ++i)
-            for (auto &str : strs)
-                if (str[i] != strs[0][i])
+
+        int shortest_len = INT_MAX;
+        for (auto &&s : strs)
+            shortest_len = min(shortest_len, static_cast<int>(s.size()));
+
+        for (int i = 0; i < shortest_len; ++i)
+            for (auto &&s : strs)
+                if (s[i] != strs[0][i])
                     return strs[0].substr(0, i);
-        return strs[0]; // the shortest string is empty string
+
+        return strs[0].substr(0, shortest_len);
     }
 };
 
