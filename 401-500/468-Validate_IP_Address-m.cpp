@@ -32,6 +32,14 @@
 // Output: "Neither"
 // Explanation: This is neither a IPv4 address nor a IPv6 address.
 
+// Python ref
+// https://leetcode.com/problems/validate-ip-address/discuss/95482/Short-RegExp-solution
+// def validIPAddress(self, IP):
+// 	mtch = lambda pattern, s: re.match(pattern, s) != None
+// 	ipv4 = r'(1?[1-9]?\d|2[0-4]\d|25[0-5])(\.(1?[1-9]?\d|2[0-4]\d|25[0-5])){3}$'
+// 	ipv6 = r'([0-9A-Fa-f]{1,4})(:([0-9A-Fa-f]{1,4})){7}$'
+// 	return ['Neither', 'IPv4', 'IPv6'][mtch(ipv4, IP) + 2*mtch(ipv6, IP)]
+
 class Solution {
   public:
     string validIPAddress(string IP) {
@@ -48,11 +56,10 @@ class Solution {
             return "IPv4";
         } else if (regex_match(IP, m, ipv6))
             return "IPv6";
-            
+
         return "Neither";
     }
 };
-
 
 class Solution {
   public:
@@ -75,8 +82,7 @@ class Solution {
                         return "Neither";
                 return "IPv4";
             }
-        }
-        else if (IP.find(':') != string::npos) {
+        } else if (IP.find(':') != string::npos) {
             if (count(IP.begin(), IP.end(), ':') != 7 ||
                 IP.find("::") != string::npos)
                 return "Neither";
