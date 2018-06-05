@@ -6,12 +6,20 @@
 
 // For example:
 // Given the below binary tree,
-
+// Input: [1,2,3]
 //        1
 //       / \
 //      2   3
-
 // Return 6.
+
+// Example 2:
+// Input: [-10,9,20,null,null,15,7]
+//    -10
+//    / \
+//   9  20
+//     /  \
+//    15   7
+// Output: 42
 
 /**
  * Definition for a binary tree node.
@@ -23,8 +31,6 @@
  * };
  */
 class Solution {
-    unordered_map<TreeNode *, bool> used;
-
     int max_val = INT_MIN;
 
     int oneside(TreeNode *root) {
