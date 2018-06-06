@@ -7,28 +7,14 @@
 class Solution {
   public:
     int maxArea(vector<int> &height) {
-        int area = 0;
-        int index1 = 0, index2 = height.size() - 1;
-        while (index1 < index2) {
-            area = max(area,
-                       min(height[index1], height[index2]) * (index2 - index1));
-            height[index1] < height[index2] ? ++index1 : --index2;
+        int l = 0, r = height.size() - 1, ret = 0;
+
+        while (l < r) {
+            ret = max(ret, min(height[l], height[r]) * (r - l));
+
+            height[l] < height[r] ? ++l : --r;
         }
-        return area;
+
+        return ret;
     }
 };
-
-// Bad version
-// class Solution {
-//   public:
-//     int maxArea(vector<int> &height) {
-//         int area = 0;
-//         int index1, index2, sz = height.size();
-//         for (index1 = 0; index1 < sz; ++index1)
-//             for (index2 = index1 + 1; index2 < sz; ++index2)
-//                 area = max(area,
-//                            min(height[index1], height[index2]) *
-//                                (index2 - index1));
-//         return area;
-//     }
-// };
