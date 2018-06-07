@@ -6,6 +6,17 @@
 // If you have figured out the O(n) solution, try coding another solution using
 // the divide and conquer approach, which is more subtle
 
+// curr: current sum of contiguous subarray, or current n
+class Solution {
+  public:
+    int maxSubArray(vector<int> &nums) {
+        int ret = INT_MIN, curr = 0;
+        for (auto &&n : nums)
+            ret = max(ret, curr = max(curr + n, n));
+        return ret;
+    }
+};
+
 class Solution {
   public:
     int maxSubArray(vector<int> &nums) {
@@ -16,9 +27,8 @@ class Solution {
         // in each iteration, temp[i] can remember sum(... , nums[i-1], nums[i])
         // if we update result with temp, "contiguous" is still hold
         for (int i = 1; i < nums.size(); ++i)
-            result =
-                max(result,
-                    temp[i] = nums[i] + (temp[i - 1] > 0 ? temp[i - 1] : 0));
+            result = max(result, temp[i] = nums[i] +
+                                           (temp[i - 1] > 0 ? temp[i - 1] : 0));
         return result;
     }
 };
