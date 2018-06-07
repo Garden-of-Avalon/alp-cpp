@@ -6,6 +6,22 @@
 // Given "pwwkew", the answer is "wke", with the length of 3. Note that the
 // answer must be a substring, "pwke" is a subsequence and not a substring.
 
+class Solution {
+  public:
+    int lengthOfLongestSubstring(string s) {
+        vector<int> idx(128, -1); // last appear index of a char
+
+        int ret = 0, len = 0;
+        for (int i = 0; i < s.size(); ++i) {
+            len = min(len + 1, i - idx[s[i]]);
+            ret = max(ret, len);
+            idx[s[i]] = i;
+        }
+
+        return ret;
+    }
+};
+
 // the optimized sliding window algorithm
 // C++ standard library <algorithm>, <map>, etc.
 class Solution {
