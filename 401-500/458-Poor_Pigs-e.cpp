@@ -8,6 +8,15 @@
 // how many pigs (x) you need to figure out the "poison" bucket within p
 // minutes? There is exact one bucket with poison.
 
+// more mathematical version
+class Solution {
+  public:
+    int poorPigs(int buckets, int minutesToDie, int minutesToTest) {
+        // (minutesToTest / minutesToDie + 1) ^ pigs is the buckets can be test
+        return ceil(log(buckets) / log(minutesToTest / minutesToDie + 1));
+    }
+};
+
 class Solution {
   public:
     int poorPigs(int buckets, int minutesToDie, int minutesToTest) {
