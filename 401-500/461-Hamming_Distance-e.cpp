@@ -13,6 +13,12 @@
 // The above arrows point to positions where the corresponding bits are
 // different.
 
+// C++11 flavor
+class Solution {
+  public:
+    int hammingDistance(int x, int y) { return bitset<32>(x ^ y).count(); }
+};
+
 // Ref 191
 class Solution {
   public:
