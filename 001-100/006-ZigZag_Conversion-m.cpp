@@ -11,13 +11,33 @@
 // string convert(string text, int nRows);
 // convert("PAYPALISHIRING", 3) should return "PAHNAPLSIIGYIR".
 
-// TODO: better understanding way
+class Solution {
+  public:
+    string convert(string s, int numRows) {
+        if (numRows == 1)
+            return s;
 
+        vector<string> buffer(numRows);
+
+        int row = 0, row_step = 1;
+
+        for (auto &&c : s) {
+            buffer[row] += c;
+            row += row_step;
+            if (row % (numRows - 1) == 0)
+                row_step = -row_step;
+        }
+
+        return accumulate(buffer.begin(), buffer.end(), string());
+    }
+};
+
+// original version
 class Solution {
   public:
     string convert(string s, int numRows) {
         int n = s.size();
-        if(!n || numRows == 1)
+        if (!n || numRows == 1)
             return s;
 
         // In given example, NG is tail
