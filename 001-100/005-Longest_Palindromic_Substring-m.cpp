@@ -8,8 +8,36 @@
 // Input: "cbbd"
 // Output: "bb"
 
+// TODO: Manacher's algorithm
 
-// TODO: expand around center; Manacher's algorithm
+// expand from center
+class Solution {
+    // return start index and size of substr
+    pair<int, int> expand(const string &s, int l, int r) {
+        while (l >= 0 && r < s.size() && s[l] == s[r]) {
+            --l;
+            ++r;
+        }
+        return make_pair(l + 1, r - l - 1);
+    }
+
+    void update(string &ret, const string &s, const pair<int, int> &st_sz) {
+        if (st_sz.second > ret.size())
+            ret = s.substr(st_sz.first, st_sz.second);
+    }
+
+  public:
+    string longestPalindrome(string s) {
+        string ret;
+
+        for (int i = 0; i < s.size(); ++i) {
+            update(ret, s, expand(s, i, i));
+            update(ret, s, expand(s, i, i + 1));
+        }
+
+        return ret;
+    }
+};
 
 class Solution {
     bool checkPalindrome(const string &s, int start, int end) {
