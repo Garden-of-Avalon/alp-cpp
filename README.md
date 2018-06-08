@@ -60,6 +60,7 @@ Bit manipulation
 
     - find the only element which exists once/twice...
     - counting 1s
+    - digital design, counter of 3 - 137
 
 Math related
 
