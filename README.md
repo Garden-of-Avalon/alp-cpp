@@ -6,7 +6,11 @@ My LeetCode profile:
 
 https://leetcode.com/ysmiles/
 
-For Java version (2nd round), please refer:
+## Other languages
+
+Priorities ranks from high to low.
+
+https://github.com/ysmiles/leetcode-python
 
 https://github.com/ysmiles/leetcode-java
 
