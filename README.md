@@ -8,7 +8,7 @@ https://leetcode.com/ysmiles/
 
 ## Other languages
 
-Priorities ranks from high to low.
+Priorities rank from high to low.
 
 https://github.com/ysmiles/leetcode-python
 
