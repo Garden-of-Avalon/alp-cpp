@@ -1,4 +1,5 @@
-// ref. 297 Serialize and Deserialize Binary Tree
+// ref: LC 297 Serialize and Deserialize Binary Tree
+// ref: https://github.com/miloyip/misc/blob/master/pntree/pntree.c
 
 // print out a tree from string
 //     1
@@ -8,226 +9,199 @@
 //     4   5
 // "[1,2,3,null,null,4,5]"
 
-// printtree.cpp : Defines the entry point for the console application.
-//
-
-#include "stdafx.h"
-
-#include <iostream>
-#include <string>
-#include <iterator>
-#include <cmath>
 #include <algorithm>
-#include <vector>
-#include <sstream>
+#include <cmath>
 #include <iomanip>
+#include <iostream>
+#include <iterator>
 #include <queue>
+#include <sstream>
+#include <string>
+#include <vector>
 
 using namespace std;
 
-
-// Definition for a binary tree node.
 struct TreeNode {
-	int val;
-	TreeNode *left;
-	TreeNode *right;
-	TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
 };
 
 class Tree {
-	TreeNode *root = nullptr;
-public:
-	// to a single string.
-	string serialize() {
-		ostringstream ss;
-		ss << '[';
+    TreeNode *root = nullptr;
 
-		queue<TreeNode *> q;
-		q.push(root);
+  public:
+    // to a single string.
+    string serialize() {
+        ostringstream ss;
+        ss << '[';
 
-		while (!q.empty()) {
-			auto p = q.front();
-			q.pop();
+        queue<TreeNode *> q;
+        q.push(root);
 
-			if (p) {
-				ss << p->val;
-				q.push(p->left);
-				q.push(p->right);
-				if (q.front())
-					ss << ',';
-			}
-			else {
-				ostringstream tempss;
-				tempss << ",null,";
-				while (!q.empty() && !q.front()) {
-					tempss << "null,";
-					q.pop();
-				}
-				if (!q.empty())
-					ss << tempss.str();
-			}
-		}
-		ss << ']';
+        while (!q.empty()) {
+            auto p = q.front();
+            q.pop();
 
-		return ss.str();
-	}
+            if (p) {
+                ss << p->val;
+                q.push(p->left);
+                q.push(p->right);
+                if (q.front())
+                    ss << ',';
+            } else {
+                ostringstream tempss;
+                tempss << ",null,";
+                while (!q.empty() && !q.front()) {
+                    tempss << "null,";
+                    q.pop();
+                }
+                if (!q.empty())
+                    ss << tempss.str();
+            }
+        }
+        ss << ']';
 
-	// Decodes your encoded data to tree.
-	TreeNode *deserialize(string data) {
-		clear();
+        return ss.str();
+    }
 
-		queue<TreeNode **> q;
-		q.push(&root);
+    // Decodes your encoded data to tree.
+    TreeNode *deserialize(string data) {
+        clear();
 
-		replace(data.begin(), data.end(), ',', ' ');
-		data.front() = data.back() = ' ';
+        queue<TreeNode **> q;
+        q.push(&root);
 
-		istringstream ss(data);
+        replace(data.begin(), data.end(), ',', ' ');
+        data.front() = data.back() = ' ';
 
-		string temp;
-		while (ss >> temp) {
-			if (temp[0] != 'n') {
-				*q.front() = new TreeNode(stoi(temp));
-				q.push(&(*q.front())->left);
-				q.push(&(*q.front())->right);
-			}
-			q.pop();
-		}
+        istringstream ss(data);
 
-		return root;
-	}
+        string temp;
+        while (ss >> temp) {
+            if (temp[0] != 'n') {
+                *q.front() = new TreeNode(stoi(temp));
+                q.push(&(*q.front())->left);
+                q.push(&(*q.front())->right);
+            }
+            q.pop();
+        }
 
-	void clear() {
-		if (!root)
-			return;
+        return root;
+    }
 
-		queue<TreeNode *> q;
-		q.push(root);
+    void clear() {
+        if (!root)
+            return;
 
-		while (!q.empty()) {
-			auto p = q.front();
-			q.pop();
-			if (p->left)
-				q.push(p->left);
-			if (p->right)
-				q.push(p->right);
-			delete p;
-		}
+        queue<TreeNode *> q;
+        q.push(root);
 
-		root = nullptr;
-	}
+        while (!q.empty()) {
+            auto p = q.front();
+            q.pop();
+            if (p->left)
+                q.push(p->left);
+            if (p->right)
+                q.push(p->right);
+            delete p;
+        }
 
-	//void show() {
-	//	if (!root)
-	//		return;
+        root = nullptr;
+    }
 
-	//	queue<TreeNode *> q;
-	//	q.push(root);
+    int geth(TreeNode *r) {
+        return r ? 1 + max(geth(r->left), geth(r->right)) : -1;
+    }
 
-	//	int w = 128;
-	//	vector<string> buff;
+    void fillMap(vector<TreeNode *> &nodemap, TreeNode *n, int index) {
+        if (!n)
+            return;
+        nodemap[index] = n;
+        fillMap(nodemap, n->left, index * 2 + 1);
+        fillMap(nodemap, n->right, index * 2 + 2);
+    }
+    // serialize version 2 based on fillMap: TODO
 
-	//	// nw - node width is max number of nodes of current line
-	//	int nw = 1, ni = 0, buffi = 0;
-	//	vector<int> nextpos, currpos(1, w / 2);
+    void putchars(char c, int n) {
+        while (n--)
+            cout << c;
+    }
 
-	//	while (!q.empty()) {
-	//		int space = w / (nw + 1);
+    int printNode(TreeNode *n, int w) { return printf("%*d", w, n->val); }
 
-	//		if (buff.size() <= buffi)
-	//			buff.resize(buffi + 2, string(w, ' '));
+    void printLeftToParentBranchTop(int w) {
+        printf("%*c", w + 1, ' ');
+        putchars('_', w - 3);
+        printf("/ ");
+    }
 
+    void printRightToParentBranchTop(int w) {
+        putchar('\\');
+        putchars('_', w - 3);
+        printf("%*c", w + 2, ' ');
+    }
 
-	//		for (int i = space, ni = 0; ni < nw && !q.empty(); ++ni, i += space) {
-	//			if (!currpos[ni]) {
-	//				nextpos.push_back(0);
-	//				nextpos.push_back(0);
-	//				continue;
-	//			}
+    void printLeftToParentBranchBottom(int w) {
+        printf("%*c%*c", w + 1, '/', w - 1, ' ');
+    }
 
-	//			auto p = q.front();
-	//			q.pop();
+    void printRightToParentBranchBottom(int w) {
+        printf("%*c%*c", w - 1, '\\', w + 1, ' ');
+    }
 
-	//			string temp = to_string(p->val);
-	//			copy(temp.begin(), temp.end(), buff[buffi].begin() + i);
+    void show() {
+        if (!root)
+            return;
 
-	//			if (p->left) {
-	//				q.push(p->left);
-	//				buff[buffi + 1][i - 2] = '\/';
-	//				nextpos.push_back(1);
-	//			}
-	//			else
-	//				nextpos.push_back(0);
+        int depth = geth(root) + 1, i, j, index;
+        vector<TreeNode *> nodemap((1 << depth) - 1);
+        fillMap(nodemap, root, 0);
 
-	//			if (p->right) {
-	//				q.push(p->right);
-	//				buff[buffi + 1][i + 2] = '\\';
-	//				nextpos.push_back(1);
-	//			}
-	//			else
-	//				nextpos.push_back(0);
+        for (j = 0, index = 0; j < depth; j++) {
+            int w = 1 << (depth - j + 1);
+            if (j > 0) {
+                // Top part of node to parent branch
+                for (i = 0; i < 1 << j; i++)
+                    if (nodemap[index + i])
+                        if (i % 2 == 0)
+                            printLeftToParentBranchTop(w);
+                        else
+                            printRightToParentBranchTop(w);
+                    else
+                        putchars(' ', w * 2);
+                putchar('\n');
+                // Bottom part of node to parent branch
+                for (i = 0; i < 1 << j; i++)
+                    if (nodemap[index + i])
+                        if (i % 2 == 0)
+                            printLeftToParentBranchBottom(w);
+                        else
+                            printRightToParentBranchBottom(w);
+                    else
+                        putchars(' ', w * 2);
+                putchar('\n');
+            }
+            // Node content
+            for (i = 0; i < 1 << j; i++, index++)
+                if (nodemap[index])
+                    putchars(' ', w * 2 - printNode(nodemap[index], w));
+                else
+                    putchars(' ', w * 2);
+            putchar('\n');
+        }
+    }
 
-	//		}
-
-	//		nw <<= 1;
-	//		buffi += 2;
-
-	//		currpos = nextpos;
-	//		nextpos.resize(0);
-	//	}
-
-	//	for (auto &&ss : buff)
-	//		cout << ss << '\n';
-
-	//	return;
-	//}
-
-	int geth(TreeNode *r) {
-		if (!r)
-			return -1;
-
-		if (!(r->left) && !(r->right))
-			return 0;
-
-		return max(1 + geth(r->left), 1 + geth(r->right));
-	}
-
-	void show() {
-		if (!root)
-			return;
-
-		int h = geth(root);
-		int w =  4 * pow(2, h); // every node at last line need 2 space
-
-
-		queue<TreeNode *> q;
-		q.push(root);
-
-		vector<string> buff;
-
-
-		for (auto &&ss : buff)
-			cout << ss << '\n';
-
-		return;
-	}
-
-
-	Tree() = default;
-	Tree(string data) {
-		deserialize(data);
-	}
-
-	~Tree() {
-		clear();
-	}
+    Tree() = default;
+    Tree(string data) { deserialize(data); }
+    ~Tree() { clear(); }
 };
 
-
 int main() {
-	Tree T("[5,4,7,3,1,2,3,4]");
+    Tree T("[5,4,7,3,1,2,3,4]");
 
-	T.show();
+    T.show();
 
-	return 0;
+    return 0;
 }
