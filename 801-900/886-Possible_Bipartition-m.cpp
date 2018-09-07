@@ -66,3 +66,52 @@ class Solution {
         return true;
     }
 };
+
+// Disjoint set / Union find
+class Solution {
+    struct DS {
+        vector<int> parent;
+        DS(int n) {
+            parent.resize(n + 1);
+            iota(parent.begin(), parent.end(), 0);
+        }
+        
+        int findRoot(int x) {
+            while (x != parent[x])                
+                x = parent[x];
+            return x;
+        }
+        
+        void unionIDs(int a, int b) { parent[findRoot(a)] = findRoot(b); }
+    };
+
+  public:
+    bool possibleBipartition(int N, vector<vector<int>> &dislikes) {
+        if (N == 1)
+            return true;
+        
+        DS ds(N);
+        vector<unordered_set<int>> graph(N + 1);
+        unordered_set<int> nodes;
+
+        for (auto &&dis : dislikes) {
+            graph[dis[0]].insert(dis[1]);
+            graph[dis[1]].insert(dis[0]);
+            
+            nodes.insert(dis[0]);
+            nodes.insert(dis[1]);
+        }
+     
+        for (auto &&n : nodes) {
+            auto x = *graph[n].begin();
+            for (auto &&nb : graph[n])
+                ds.unionIDs(x, nb);             
+        }
+
+        unordered_set<int> groups;
+        for (auto &&n : nodes) 
+            groups.insert(ds.findRoot(n));
+        
+        return groups.size() == 2;
+    }
+};
