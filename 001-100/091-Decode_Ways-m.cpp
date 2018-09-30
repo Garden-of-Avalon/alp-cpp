@@ -63,6 +63,11 @@ class Solution {
                 curr = stoi(s.substr(i, 2)) <= 26 ? pWays + ppWays : pWays;
             swap(ppWays, pWays);
             swap(pWays, curr);
+            // even shorter:
+            // swap(ppWays, pWays);
+            // pWays = s[i] == '0'
+            //             ? 0
+            //             : stoi(s.substr(i, 2)) <= 26 ? pWays + ppWays : ppWays;
         }
 
         return pWays;
