@@ -46,3 +46,25 @@ class Solution {
         return dp[s.size() + 1];
     }
 };
+
+// better DP
+class Solution {
+  public:
+    int numDecodings(string s) {
+        if (s.empty())
+            return 0;
+
+        // previous, previous of previous
+        int pWays = s.back() != '0', ppWays = 1;
+
+        for (int i = s.size() - 2; i >= 0; --i) {
+            int curr = 0;
+            if (s[i] != '0')
+                curr = stoi(s.substr(i, 2)) <= 26 ? pWays + ppWays : pWays;
+            swap(ppWays, pWays);
+            swap(pWays, curr);
+        }
+
+        return pWays;
+    }
+};
