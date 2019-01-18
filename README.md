@@ -6,6 +6,8 @@ My LeetCode profile:
 
 https://leetcode.com/ysmiles/
 
+If you'd like to discuss, please join QQ group: 627923843 (Libra)
+
 ## Other languages
 
 Priorities rank from high to low.
@@ -23,20 +25,6 @@ https://github.com/ysmiles/leetcode-cpp/blob/master/One_sentence_summary.md
 number-this_is_title-difficulty (e-easy, m-medium, h-hard)
 
 "NEED O" and "TODO" mean that "need further work/optimization".
-
-## Progress from 200
-
-|   Date   | Completion number |
-|:--------:|:-----------------:|
-|   2-21   |        222        |
-|   2-28   |        259        |
-|   3-10   |        280        |
-|   3-22   |        292        |
-|   3-31   |        300        |
-|   5-15   |        350        |
-|   6-3    |        375        |
-|        internship            |
-|   9-12   |        405        |
 
 ## TaoLu: general algorithms and frequent question summaries plan
 
