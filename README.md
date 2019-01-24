@@ -7,7 +7,7 @@ My LeetCode profile:
 https://leetcode.com/ysmiles/
 
 If you'd like to discuss, please join QQ group:
-<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=833cd157acc67256ce471f504b60628478a562a6a75dd575a39588f33244123b"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="Libra" title="Libra"></a>
+[Libra](https://shang.qq.com/wpa/qunwpa?idkey=833cd157acc67256ce471f504b60628478a562a6a75dd575a39588f33244123b)
 
 ## Other languages
 
